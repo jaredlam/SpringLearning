@@ -11,7 +11,7 @@ import com.jaredluo.test.base.UnitTestBase;
 public class TestInjection extends UnitTestBase {
 
 	public TestInjection() {
-		super("classpath:spring-beanannotation.xml");
+		super("classpath:spring-beaninjection.xml");
 	}
 
 	@Test
