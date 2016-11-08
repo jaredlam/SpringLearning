@@ -6,14 +6,14 @@ public class InjectionServiceImpl implements InjectionService {
 
 	private InjectionDAO injectionDAO;
 
-	public InjectionDAO getInjectionDAO() {
-		return injectionDAO;
+	public void setInjectionDAO(InjectionDAO injectionDAO) {
+		this.injectionDAO = injectionDAO;
 	}
 
 	@Override
 	public void save(String arg) {
 		System.out.println("Service接收数据：" + arg);
-		arg += hashCode();
+		arg += ":" + hashCode();
 		injectionDAO.save(arg);
 	}
 
