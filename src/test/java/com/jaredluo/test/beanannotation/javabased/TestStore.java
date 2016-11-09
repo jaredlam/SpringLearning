@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import com.jaredluo.springlearning.javabased.MyDriverMananger;
 import com.jaredluo.springlearning.javabased.Store;
 import com.jaredluo.test.base.UnitTestBase;
 
@@ -17,6 +18,15 @@ public class TestStore extends UnitTestBase {
 	@Test
 	public void say() {
 		Store store = getBean("stringStore");
-		System.out.println(store.getClass().getName());
+		System.out.println(store.hashCode());
+		
+		Store store1 = getBean("stringStore");
+		System.out.println(store1.hashCode());
+	}
+
+	@Test
+	public void driverManager() {
+		MyDriverMananger myDriverMananger = getBean("myDriverManager");
+		System.out.println(myDriverMananger.getClass().getName());
 	}
 }
