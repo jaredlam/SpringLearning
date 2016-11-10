@@ -17,10 +17,10 @@ public class TestStore extends UnitTestBase {
 
 	@Test
 	public void say() {
-		Store store = getBean("stringStore");
+		Store<String> store = getBean("stringStore");
 		System.out.println(store.hashCode());
-		
-		Store store1 = getBean("stringStore");
+
+		Store<String> store1 = getBean("stringStore");
 		System.out.println(store1.hashCode());
 	}
 
@@ -28,5 +28,10 @@ public class TestStore extends UnitTestBase {
 	public void driverManager() {
 		MyDriverMananger myDriverMananger = getBean("myDriverManager");
 		System.out.println(myDriverMananger.getClass().getName());
+	}
+
+	@Test
+	public void testGStore() {
+		super.getBean("testGStore");
 	}
 }

@@ -1,5 +1,6 @@
 package com.jaredluo.springlearning.javabased;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,19 @@ public class StoreConfig {
 
 	@Bean(initMethod = "init", destroyMethod = "destroy")
 	@Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public Store stringStore() {
+	public StringStore stringStore() {
+		return new StringStore();
+	}
+
+	@Bean
+	public IntegerStore integerStore() {
+		return new IntegerStore();
+	}
+
+	@Bean
+	public Store testGStore() {
+		System.out.println("Test G Store stringStore:" + stringStore.getClass().getName());
+		System.out.println("Test G Store integerStore:" + integerStore.getClass().getName());
 		return new StringStore();
 	}
 
@@ -29,4 +42,8 @@ public class StoreConfig {
 		return new MyDriverMananger(url, userName, password);
 	}
 
+	@Autowired
+	private Store<String> stringStore;
+	@Autowired
+	private Store<Integer> integerStore;
 }

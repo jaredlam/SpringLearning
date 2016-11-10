@@ -1,5 +1,5 @@
 package com.jaredluo.springlearning.javabased;
 
-public interface Store {
+public interface Store<T> {
 
 }
