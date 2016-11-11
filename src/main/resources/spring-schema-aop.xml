@@ -21,8 +21,12 @@
 				pointcut-ref="schemaPointcut" />
 			<aop:after-throwing method="afterThrowing"
 				pointcut-ref="schemaPointcut" />
-			<aop:after method="after"
-				pointcut-ref="schemaPointcut" />
+			<aop:after method="after" pointcut-ref="schemaPointcut" />
+			<aop:around method="around"
+				pointcut="execution(* com.jaredluo.springlearning.aop.schema.SchemaBiz.biz1())" />
+			<aop:around method="aroundWithArgs"
+				pointcut="execution(* com.jaredluo.springlearning.aop.schema.SchemaBiz.biz2(String, Integer)) and args(name, times)" />
+
 		</aop:aspect>
 	</aop:config>
 </beans>

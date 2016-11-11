@@ -19,4 +19,16 @@ public class TestAOPSchema extends UnitTestBase {
 		SchemaBiz schemaBiz = getBean("schemaBiz");
 		schemaBiz.biz();
 	}
+
+	@Test
+	public void testAOPAround() {
+		SchemaBiz schemaBiz = getBean("schemaBiz");
+		schemaBiz.biz1();
+	}
+
+	@Test
+	public void testAOPAroundWithArgs() {
+		SchemaBiz schemaBiz = getBean("schemaBiz");
+		schemaBiz.biz2("Jared", 10);
+	}
 }
