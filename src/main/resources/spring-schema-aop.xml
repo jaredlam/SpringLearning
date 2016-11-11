@@ -27,6 +27,10 @@
 			<aop:around method="aroundWithArgs"
 				pointcut="execution(* com.jaredluo.springlearning.aop.schema.SchemaBiz.biz2(String, Integer)) and args(name, times)" />
 
+			<aop:declare-parents
+				types-matching="com.jaredluo.springlearning.aop.schema.*+"
+				implement-interface="com.jaredluo.springlearning.aop.schema.AccessCount"
+				default-impl="com.jaredluo.springlearning.aop.schema.AccessCountImpl" />
 		</aop:aspect>
 	</aop:config>
 </beans>

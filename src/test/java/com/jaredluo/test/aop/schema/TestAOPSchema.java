@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import com.jaredluo.springlearning.aop.schema.AccessCount;
 import com.jaredluo.springlearning.aop.schema.SchemaBiz;
 import com.jaredluo.test.base.UnitTestBase;
 
@@ -30,5 +31,11 @@ public class TestAOPSchema extends UnitTestBase {
 	public void testAOPAroundWithArgs() {
 		SchemaBiz schemaBiz = getBean("schemaBiz");
 		schemaBiz.biz2("Jared", 10);
+	}
+
+	@Test
+	public void testIntroduction() {
+		AccessCount accessCount = (AccessCount)getBean("schemaBiz");
+		accessCount.count();
 	}
 }
