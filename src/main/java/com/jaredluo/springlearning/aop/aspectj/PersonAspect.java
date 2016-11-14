@@ -22,6 +22,16 @@ public class PersonAspect {
 		System.out.println("AspectJ before");
 	}
 
+	@Before("pointcut() && args(arg)")
+	public void beforeWithParam(String arg) {
+		System.out.println("AspectJ before with param: " + arg);
+	}
+
+	@Before("pointcut() && @annotation(per)")
+	public void beforeWithAnnotation(Person per) {
+		System.out.println("AspectJ before with annotation: " + per.value());
+	}
+
 	@AfterReturning(pointcut = "pointcut()", returning = "returnVal")
 	public void afterReturning(Object returnVal) {
 		System.out.println("AspectJ after returning: " + returnVal);

@@ -17,7 +17,7 @@ public class TestApectJ extends UnitTestBase {
 	@Test
 	public void test() {
 		PersonService service = getBean("personService");
-		service.save();
+		service.save("a word");
 	}
 
 }
